@@ -39,11 +39,11 @@ export default class ToggleSwitch extends React.Component {
         };
       default:
         return {
-          width: 50, // changed from 60 -> 50
-          padding: 12,
-          circleWidth: 18,
-          circleHeight: 18,
-          translateX: 24
+          width: 60,
+          padding: 15.5,
+          circleWidth: 30,
+          circleHeight: 30,
+          translateX: 30
         };
     }
   }
@@ -98,7 +98,8 @@ export default class ToggleSwitch extends React.Component {
 
     Animated.timing(this.offsetX, {
       toValue,
-      duration: 300
+      duration: 300,
+      useNativeDriver: true
     }).start();
 
     return (
