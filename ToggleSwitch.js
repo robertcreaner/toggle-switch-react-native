@@ -13,7 +13,7 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Animated
+  Animated,
 } from "react-native";
 
 import PropTypes from "prop-types";
@@ -23,11 +23,11 @@ export default class ToggleSwitch extends React.Component {
     switch (size) {
       case "small":
         return {
-          width: 50,
+          width: 38,
           padding: 10,
-          circleWidth: 15,
-          circleHeight: 15,
-          translateX: 22
+          circleWidth: 12,
+          circleHeight: 12,
+          translateX: 20,
         };
       case "large":
         return {
@@ -35,7 +35,7 @@ export default class ToggleSwitch extends React.Component {
           padding: 20,
           circleWidth: 30,
           circleHeight: 30,
-          translateX: 38
+          translateX: 38,
         };
       default:
         return {
@@ -43,7 +43,7 @@ export default class ToggleSwitch extends React.Component {
           padding: 15,
           circleWidth: 30,
           circleHeight: 30,
-          translateX: 30
+          translateX: 30,
         };
     }
   }
@@ -56,7 +56,7 @@ export default class ToggleSwitch extends React.Component {
     size: PropTypes.string,
     labelStyle: PropTypes.object,
     onToggle: PropTypes.func.isRequired,
-    icon: PropTypes.object
+    icon: PropTypes.object,
   };
 
   static defaultProps = {
@@ -65,7 +65,7 @@ export default class ToggleSwitch extends React.Component {
     offColor: "#ecf0f1",
     size: "medium",
     labelStyle: {},
-    icon: null
+    icon: null,
   };
 
   offsetX = new Animated.Value(0);
@@ -76,7 +76,7 @@ export default class ToggleSwitch extends React.Component {
     width: this.dimensions.width,
     borderRadius: 20,
     padding: this.dimensions.padding,
-    backgroundColor: this.props.isOn ? this.props.onColor : this.props.offColor
+    backgroundColor: this.props.isOn ? this.props.onColor : this.props.offColor,
   });
 
   createInsideCircleStyle = () => ({
@@ -88,7 +88,7 @@ export default class ToggleSwitch extends React.Component {
     transform: [{ translateX: this.offsetX }],
     width: this.dimensions.circleWidth,
     height: this.dimensions.circleHeight,
-    borderRadius: this.dimensions.circleWidth / 2
+    borderRadius: this.dimensions.circleWidth / 2,
   });
 
   render() {
@@ -99,7 +99,7 @@ export default class ToggleSwitch extends React.Component {
     Animated.timing(this.offsetX, {
       toValue,
       duration: 300,
-      useNativeDriver: true
+      useNativeDriver: true,
     }).start();
 
     return (
@@ -128,9 +128,9 @@ export default class ToggleSwitch extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   labelStyle: {
-    marginHorizontal: 10
-  }
+    marginHorizontal: 10,
+  },
 });
